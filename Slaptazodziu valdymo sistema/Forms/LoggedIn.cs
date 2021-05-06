@@ -45,5 +45,10 @@ namespace Slaptazodziu_valdymo_sistema.Forms
             DeletePassword deletePassword = new DeletePassword();
             flowLayoutPanel.Controls.Add(deletePassword);
         }
+
+        private void logOffButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

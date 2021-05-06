@@ -25,11 +25,12 @@ namespace Slaptazodziu_valdymo_sistema
         {
             try
             {
-                string sql = "insert into Users(username, password) " +
-                    "values (@username, @password)";
+                string sql = "insert into Users(username, password, fileLocation) " +
+                    "values (@username, @password, @fileLocation)";
                 SqlCommand cmd = new SqlCommand(sql, connection);
                 cmd.Parameters.AddWithValue("@username", user.username);
                 cmd.Parameters.AddWithValue("@password", user.password);
+                cmd.Parameters.AddWithValue("@fileLocation", user.fileLocation);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -44,7 +45,7 @@ namespace Slaptazodziu_valdymo_sistema
         {
             try
             {
-                string sql = "select username, password from Users " +
+                string sql = "select username, password, fileLocation from Users " +
                         "where username=@username";
                 SqlCommand cmd = new SqlCommand(sql, connection);
                 cmd.Parameters.AddWithValue("@username", username);
@@ -56,8 +57,9 @@ namespace Slaptazodziu_valdymo_sistema
                     {
                         string usrname = reader["username"].ToString();
                         string passrord = reader["password"].ToString();
+                        string filrLocation = reader["fileLocation"].ToString();
                         connection.Close();
-                        return new User(usrname, passrord);
+                        return new User(usrname, passrord, filrLocation);
                     }
                 }
                 connection.Close();

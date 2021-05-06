@@ -11,10 +11,13 @@ namespace Slaptazodziu_valdymo_sistema
         public string username { get; set; }
         public string password { get; set; }
 
-        public User(string username, string password)
+        public string fileLocation { get; set; }
+
+        public User(string username, string password, string fileLocation)
         {
             this.username = username;
             this.password = password;
+            this.fileLocation = fileLocation;
         }
     }
 }

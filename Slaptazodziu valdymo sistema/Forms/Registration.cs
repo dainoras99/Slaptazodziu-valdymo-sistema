@@ -34,9 +34,11 @@ namespace Slaptazodziu_valdymo_sistema.Forms
             {
                 PasswordHashing passwordHashing = new PasswordHashing();
                 UsersRepository usersRepository = new UsersRepository();
+                FileCreation fileCreation = new FileCreation();
                 Validations();
                 User user = new User(usernameBox.Text,
-                    passwordHashing.creatingHashedPassword(passwordBox.Text));
+                    passwordHashing.creatingHashedPassword(passwordBox.Text), 
+                    fileCreation.createFile(usernameBox.Text));
                 usersRepository.AddNewUserToDB(user);
 
                 loggedInUser = user;

@@ -37,6 +37,7 @@ namespace Slaptazodziu_valdymo_sistema.Forms
             this.findPassword = new System.Windows.Forms.Button();
             this.deletePassword = new System.Windows.Forms.Button();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.logOffButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +45,7 @@ namespace Slaptazodziu_valdymo_sistema.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(145, 32);
+            this.label1.Location = new System.Drawing.Point(138, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(378, 25);
             this.label1.TabIndex = 20;
@@ -117,12 +118,23 @@ namespace Slaptazodziu_valdymo_sistema.Forms
             this.flowLayoutPanel.Size = new System.Drawing.Size(589, 255);
             this.flowLayoutPanel.TabIndex = 28;
             // 
+            // logOffButton
+            // 
+            this.logOffButton.Location = new System.Drawing.Point(520, 12);
+            this.logOffButton.Name = "logOffButton";
+            this.logOffButton.Size = new System.Drawing.Size(75, 23);
+            this.logOffButton.TabIndex = 29;
+            this.logOffButton.Text = "Log off";
+            this.logOffButton.UseVisualStyleBackColor = true;
+            this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
+            // 
             // LoggedIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(617, 427);
+            this.Controls.Add(this.logOffButton);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.deletePassword);
             this.Controls.Add(this.findPassword);
@@ -148,5 +160,6 @@ namespace Slaptazodziu_valdymo_sistema.Forms
         private System.Windows.Forms.Button findPassword;
         private System.Windows.Forms.Button deletePassword;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.Button logOffButton;
     }
 }

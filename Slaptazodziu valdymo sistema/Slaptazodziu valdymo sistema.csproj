@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileCreation.cs" />
     <Compile Include="Forms\LoggedIn.cs">
       <SubType>Form</SubType>
     </Compile>
