@@ -80,6 +80,30 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserControls\DeletePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DeletePassword.Designer.cs">
+      <DependentUpon>DeletePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FindPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FindPassword.Designer.cs">
+      <DependentUpon>FindPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NewPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewPassword.Designer.cs">
+      <DependentUpon>NewPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UpdatePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdatePassword.Designer.cs">
+      <DependentUpon>UpdatePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersRepository.cs" />
     <EmbeddedResource Include="Forms\LoggedIn.resx">
       <DependentUpon>LoggedIn.cs</DependentUpon>
@@ -102,6 +126,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\DeletePassword.resx">
+      <DependentUpon>DeletePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FindPassword.resx">
+      <DependentUpon>FindPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\NewPassword.resx">
+      <DependentUpon>NewPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UpdatePassword.resx">
+      <DependentUpon>UpdatePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
