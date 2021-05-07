@@ -55,6 +55,10 @@ namespace Slaptazodziu_valdymo_sistema.Forms
         private void logOffButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
             MainWindow.loggedInUser.fileLocation = fileCreation.EncryptWithAES(MainWindow.loggedInUser.fileLocation);
             usersRepository.ChangeFileName(MainWindow.loggedInUser);
         }

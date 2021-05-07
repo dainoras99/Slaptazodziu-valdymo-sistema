@@ -97,10 +97,38 @@ namespace Slaptazodziu_valdymo_sistema
             {
                 i++;
                 if (i == fileContent.Count)
-                    File.AppendAllText(file, filePiece + Environment.NewLine);
+                    File.AppendAllText(file, filePiece + "." + Environment.NewLine);
                 else
                     File.AppendAllText(file, filePiece + ",");
             }
+        }
+        public List<string> ReadFromFile(string file)
+        {
+            string temp = "";
+            string[] lines = File.ReadAllLines(file);
+            List<string> info = new List<string>();
+            List<string> fixedInfo = new List<string>();
+            foreach (string line in lines)
+            {
+                if (!line.EndsWith("."))
+                {
+                    temp = line;
+                    continue;
+                }
+                if (!String.IsNullOrEmpty(temp))
+                {
+                    info.Add(temp + "\r" + line);
+                    temp = "";
+                }
+                else
+                    info.Add(line);
+            }
+
+            foreach (string element in info)
+            {
+                fixedInfo.Add(element.Remove(element.Length - 1));
+            }
+            return fixedInfo;
         }
     }
 }

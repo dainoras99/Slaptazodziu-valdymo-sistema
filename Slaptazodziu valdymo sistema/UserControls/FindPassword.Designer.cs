@@ -34,12 +34,19 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.searchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.copyButton = new System.Windows.Forms.Button();
-            this.listBox = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LoginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoreInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.showPasswords = new System.Windows.Forms.CheckBox();
+            this.allButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // searchPasswordBox
             // 
-            this.searchPasswordBox.Location = new System.Drawing.Point(114, 49);
+            this.searchPasswordBox.Location = new System.Drawing.Point(110, 33);
             this.searchPasswordBox.Name = "searchPasswordBox";
             this.searchPasswordBox.Size = new System.Drawing.Size(150, 20);
             this.searchPasswordBox.TabIndex = 50;
@@ -47,7 +54,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 52);
+            this.label5.Location = new System.Drawing.Point(12, 36);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 49;
@@ -55,12 +62,13 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(288, 49);
+            this.searchButton.Location = new System.Drawing.Point(284, 33);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 20);
             this.searchButton.TabIndex = 47;
             this.searchButton.Text = "SEARCH";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // label1
             // 
@@ -75,27 +83,76 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             // copyButton
             // 
-            this.copyButton.Location = new System.Drawing.Point(511, 75);
+            this.copyButton.Location = new System.Drawing.Point(511, 92);
             this.copyButton.Name = "copyButton";
             this.copyButton.Size = new System.Drawing.Size(75, 160);
             this.copyButton.TabIndex = 52;
             this.copyButton.Text = "Copy";
             this.copyButton.UseVisualStyleBackColor = true;
             // 
-            // listBox
+            // dataGridView1
             // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(19, 75);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(486, 160);
-            this.listBox.TabIndex = 53;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LoginName,
+            this.Password,
+            this.URL,
+            this.MoreInfo});
+            this.dataGridView1.Location = new System.Drawing.Point(3, 92);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(502, 160);
+            this.dataGridView1.TabIndex = 55;
+            // 
+            // LoginName
+            // 
+            this.LoginName.HeaderText = "Login Name";
+            this.LoginName.Name = "LoginName";
+            // 
+            // Password
+            // 
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            // 
+            // URL
+            // 
+            this.URL.HeaderText = "URL";
+            this.URL.Name = "URL";
+            // 
+            // MoreInfo
+            // 
+            this.MoreInfo.HeaderText = "More Information";
+            this.MoreInfo.Name = "MoreInfo";
+            // 
+            // showPasswords
+            // 
+            this.showPasswords.AutoSize = true;
+            this.showPasswords.Location = new System.Drawing.Point(139, 69);
+            this.showPasswords.Name = "showPasswords";
+            this.showPasswords.Size = new System.Drawing.Size(106, 17);
+            this.showPasswords.TabIndex = 56;
+            this.showPasswords.Text = "Show passwords";
+            this.showPasswords.UseVisualStyleBackColor = true;
+            this.showPasswords.CheckedChanged += new System.EventHandler(this.showPasswords_CheckedChanged);
+            // 
+            // allButton
+            // 
+            this.allButton.Location = new System.Drawing.Point(365, 33);
+            this.allButton.Name = "allButton";
+            this.allButton.Size = new System.Drawing.Size(75, 20);
+            this.allButton.TabIndex = 57;
+            this.allButton.Text = "ALL";
+            this.allButton.UseVisualStyleBackColor = true;
+            this.allButton.Click += new System.EventHandler(this.allButton_Click);
             // 
             // FindPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.Controls.Add(this.listBox);
+            this.Controls.Add(this.allButton);
+            this.Controls.Add(this.showPasswords);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.copyButton);
             this.Controls.Add(this.searchPasswordBox);
             this.Controls.Add(this.label5);
@@ -103,6 +160,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.Controls.Add(this.label1);
             this.Name = "FindPassword";
             this.Size = new System.Drawing.Size(589, 255);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,6 +173,12 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button copyButton;
-        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoginName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn URL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MoreInfo;
+        private System.Windows.Forms.CheckBox showPasswords;
+        private System.Windows.Forms.Button allButton;
     }
 }

@@ -52,5 +52,10 @@ namespace Slaptazodziu_valdymo_sistema
             string encryptedOrDecryptedText = encoding.GetString(encryptedOrDecryptedNumbers);
             return encryptedOrDecryptedText;
         }
+
+        private object ASCIIEncoding()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
