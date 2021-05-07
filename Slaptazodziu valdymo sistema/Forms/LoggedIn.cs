@@ -13,9 +13,15 @@ namespace Slaptazodziu_valdymo_sistema.Forms
 {
     public partial class LoggedIn : Form
     {
+        FileCreation fileCreation = new FileCreation();
+        UsersRepository usersRepository = new UsersRepository();
         public LoggedIn()
         {
             InitializeComponent();
+            MainWindow.loggedInUser.fileLocation = fileCreation.DecryptWithAES
+                (MainWindow.loggedInUser.fileLocation);
+            usersRepository.ChangeFileName(MainWindow.loggedInUser);
+
         }
 
         private void newPassword_Click(object sender, EventArgs e)
@@ -49,6 +55,8 @@ namespace Slaptazodziu_valdymo_sistema.Forms
         private void logOffButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            MainWindow.loggedInUser.fileLocation = fileCreation.EncryptWithAES(MainWindow.loggedInUser.fileLocation);
+            usersRepository.ChangeFileName(MainWindow.loggedInUser);
         }
     }
 }

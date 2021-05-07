@@ -70,5 +70,27 @@ namespace Slaptazodziu_valdymo_sistema
             }
             return null;
         }
+        public void ChangeFileName(User user)
+        {
+            try
+            {
+                string sql = "UPDATE Users SET fileLocation=@fileLocation WHERE username=@username";
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.Parameters.AddWithValue("@fileLocation", user.fileLocation);
+                cmd.Parameters.AddWithValue("@username", user.username);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception exc)
+            {
+                connection.Close();
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

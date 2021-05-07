@@ -12,7 +12,6 @@ namespace Slaptazodziu_valdymo_sistema.Forms
 {
     public partial class Login : Form
     {
-        public static User loggedInUser;
         public Login()
         {
             InitializeComponent();
@@ -41,6 +40,7 @@ namespace Slaptazodziu_valdymo_sistema.Forms
                         DialogResult dialog = MessageBox.Show("You signed in successfully!", "OK", MessageBoxButtons.OK);
                         if (dialog == DialogResult.OK)
                         {
+                            MainWindow.loggedInUser = user;
                             LoggedIn loggedIn = new LoggedIn();
                             loggedIn.ShowDialog();
                         }

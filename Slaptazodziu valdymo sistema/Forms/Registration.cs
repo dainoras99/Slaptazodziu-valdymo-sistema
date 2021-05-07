@@ -12,7 +12,6 @@ namespace Slaptazodziu_valdymo_sistema.Forms
 {
     public partial class Registration : Form
     {
-        public static User loggedInUser;
         public Registration()
         {
             InitializeComponent();
@@ -39,13 +38,16 @@ namespace Slaptazodziu_valdymo_sistema.Forms
                 User user = new User(usernameBox.Text,
                     passwordHashing.creatingHashedPassword(passwordBox.Text), 
                     fileCreation.createFile(usernameBox.Text));
+                user.fileLocation = fileCreation.EncryptWithAES(user.fileLocation);
                 usersRepository.AddNewUserToDB(user);
+                usersRepository.ChangeFileName(user);
 
-                loggedInUser = user;
+
 
                 DialogResult dialog = MessageBox.Show("You signed up successfully!", "OK", MessageBoxButtons.OK);
                 if (dialog == DialogResult.OK)
                 {
+                    MainWindow.loggedInUser = user;
                     LoggedIn loggedIn = new LoggedIn();
                     loggedIn.ShowDialog();
                 }

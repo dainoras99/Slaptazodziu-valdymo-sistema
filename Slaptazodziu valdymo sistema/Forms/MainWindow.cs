@@ -13,6 +13,7 @@ namespace Slaptazodziu_valdymo_sistema
 {
     public partial class MainWindow : Form
     {
+        public static User loggedInUser;
         public MainWindow()
         {
             InitializeComponent();
