@@ -110,6 +110,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.createButton.TabIndex = 30;
             this.createButton.Text = "CREATE";
             this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // urlBox
             // 

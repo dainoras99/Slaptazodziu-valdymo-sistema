@@ -90,5 +90,17 @@ namespace Slaptazodziu_valdymo_sistema
             }
             return null;
         }
+        public void WriteToFile(string file, List<string> fileContent)
+        {
+            int i = 0;
+            foreach (string filePiece in fileContent)
+            {
+                i++;
+                if (i == fileContent.Count)
+                    File.AppendAllText(file, filePiece + Environment.NewLine);
+                else
+                    File.AppendAllText(file, filePiece + ",");
+            }
+        }
     }
 }
