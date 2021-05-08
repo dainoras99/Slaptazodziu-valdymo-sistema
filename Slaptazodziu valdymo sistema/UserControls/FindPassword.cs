@@ -25,33 +25,36 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             foreach (string inf in info)
             {
                 string[] split = inf.Split(',');
-                split[1] = "*******";
-                //split[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(split[1], false);
+               //split[1] = "*******";
+                split[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(split[1], false);
                 dataGridView1.Rows.Add(split);
             }
+            dataGridView1.Columns[1].Visible = false;
         }
 
         private void showPasswords_CheckedChanged(object sender, EventArgs e)
         {
             if (showPasswords.Checked)
             {
-                dataGridView1.Rows.Clear();
-                foreach (string inf in info)
-                {
-                    string[] splitWithPassword = inf.Split(','); 
-                        splitWithPassword[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(splitWithPassword[1], false);
-                    dataGridView1.Rows.Add(splitWithPassword);
-                }
+                //dataGridView1.Rows.Clear();
+                //foreach (string inf in info)
+                //{
+                //    string[] splitWithPassword = inf.Split(','); 
+                //        splitWithPassword[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(splitWithPassword[1], false);
+                //    dataGridView1.Rows.Add(splitWithPassword);
+                //}
+                dataGridView1.Columns[1].Visible = true;
             }
             if (!showPasswords.Checked)
             {
-                dataGridView1.Rows.Clear();
-                foreach (string inf in info)
-                {
-                    string[] splitWithoutPassword = inf.Split(',');
-                        splitWithoutPassword[1] = "*******";
-                    dataGridView1.Rows.Add(splitWithoutPassword);
-                }
+                //dataGridView1.Rows.Clear();
+                //foreach (string inf in info)
+                //{
+                //    string[] splitWithoutPassword = inf.Split(',');
+                //        splitWithoutPassword[1] = "*******";
+                //    dataGridView1.Rows.Add(splitWithoutPassword);
+                //}
+                dataGridView1.Columns[1].Visible = false;
             }
         }
 
@@ -84,10 +87,15 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             foreach (string inf in info)
             {
                 string[] split = inf.Split(',');
-                split[1] = "*******";
-                //split[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(split[1], false);
+                split[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(split[1], false);
                 dataGridView1.Rows.Add(split);
             }
+        }
+
+        private void copyButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            MessageBox.Show("Password is copied!");
         }
     }
 }

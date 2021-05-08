@@ -89,6 +89,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.copyButton.TabIndex = 52;
             this.copyButton.Text = "Copy";
             this.copyButton.UseVisualStyleBackColor = true;
+            this.copyButton.Click += new System.EventHandler(this.copyButton_Click);
             // 
             // dataGridView1
             // 
