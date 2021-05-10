@@ -93,41 +93,33 @@ namespace Slaptazodziu_valdymo_sistema
         public void WriteToFile(string file, List<string> fileContent)
         {
             int i = 0;
+
+            if (fileContent.Any(x => x.Contains("\n")))
+                fileContent[1] = fileContent[1].Replace("\n", "NaujasLainasNNN");
+            if (fileContent.Any(x => x.Contains("\r")))
+                fileContent[1] = fileContent[1].Replace("\r", "NaujasLainasRRR");
+
             foreach (string filePiece in fileContent)
             {
                 i++;
                 if (i == fileContent.Count)
-                    File.AppendAllText(file, filePiece + "." + Environment.NewLine);
+                    File.AppendAllText(file, filePiece + "PaBaiGaKoNeCxDxD!" + Environment.NewLine);
                 else
-                    File.AppendAllText(file, filePiece + ",");
+                    File.AppendAllText(file, filePiece + "nEpABaiGaIrNeKoNec!!jaXociuumirat:))");
             }
         }
         public List<string> ReadFromFile(string file)
         {
-            string temp = "";
+            //string temp = "";
             string[] lines = File.ReadAllLines(file);
             List<string> info = new List<string>();
             List<string> fixedInfo = new List<string>();
             foreach (string line in lines)
-            {
-                if (!line.EndsWith("."))
-                {
-                    temp = line;
-                    continue;
-                }
-                if (!String.IsNullOrEmpty(temp))
-                {
-                    info.Add(temp + "\r" + line);
-                    temp = "";
-                }
-                else
                     info.Add(line);
-            }
 
             foreach (string element in info)
-            {
-                fixedInfo.Add(element.Remove(element.Length - 1));
-            }
+                fixedInfo.Add(element.Remove(element.Length - 17));
+
             return fixedInfo;
         }
     }
