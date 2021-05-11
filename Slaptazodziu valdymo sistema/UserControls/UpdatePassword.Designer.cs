@@ -168,6 +168,8 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Usernam,
@@ -176,6 +178,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.MoreInformation});
             this.dataGridView.Location = new System.Drawing.Point(263, 40);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(323, 212);
             this.dataGridView.TabIndex = 49;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
@@ -184,21 +187,25 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             this.Usernam.HeaderText = "Login Name";
             this.Usernam.Name = "Usernam";
+            this.Usernam.ReadOnly = true;
             // 
             // Passwrd
             // 
             this.Passwrd.HeaderText = "Password";
             this.Passwrd.Name = "Passwrd";
+            this.Passwrd.ReadOnly = true;
             // 
             // Url
             // 
             this.Url.HeaderText = "URL";
             this.Url.Name = "Url";
+            this.Url.ReadOnly = true;
             // 
             // MoreInformation
             // 
             this.MoreInformation.HeaderText = "More Information";
             this.MoreInformation.Name = "MoreInformation";
+            this.MoreInformation.ReadOnly = true;
             // 
             // showPasswords
             // 

@@ -148,5 +148,28 @@ namespace Slaptazodziu_valdymo_sistema
             }
             File.WriteAllLines(file, lines);
         }
+        public void DeleteRecordFromFile(string file, string username, string password, string url, string moreInfo)
+        {
+            if (password.Contains("\n"))
+                password = password.Replace("\n", "NaujasLainasNNN");
+            if (password.Contains("\r"))
+                password = password.Replace("\r", "NaujasLainasRRR");
+            int i = -1;
+            string[] lines = File.ReadAllLines(file);
+            string[] temp = lines;
+            List<string> removeList = new List<string>(lines);
+            foreach (string line in temp)
+            {
+                i++;
+                string stringSplit = "nEpABaiGaIrNeKoNec!!jaXociuumirat:))";
+                string[] split = line.Split(new string[] { stringSplit }, StringSplitOptions.None);
+                split[3] = split[3].Remove(split[3].Length - 17);
+                if (username.Equals(split[0]) && password.Equals(split[1]) && url.Equals(split[2]) && moreInfo.Equals(split[3]))
+                {
+                    removeList.RemoveAt(i);
+                }
+            }
+            File.WriteAllLines(file, removeList.ToArray());
+        }
     }
 }
