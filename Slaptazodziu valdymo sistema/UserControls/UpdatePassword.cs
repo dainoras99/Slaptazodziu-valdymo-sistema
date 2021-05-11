@@ -39,7 +39,39 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-
+            
+            try
+            {
+                if (loginName.Text != null ||
+                    passwordBox.Text != null ||
+                    urlBox.Text != null ||
+                    passwordBox.Text != null)
+                {
+                    string password = passwordHashing.EncryptingAndDecryptingPasswordWithDES(passwordBox.Text, true);
+                    fileCreation.UpdateFile(MainWindow.loggedInUser.fileLocation,
+                        loginNameBox.Text, password, urlBox.Text, moreInfoBox.Text);
+                    MessageBox.Show("This password is updated!");
+                    if (dataGridView.CurrentCell != null)
+                    {
+                        int row = dataGridView.CurrentCell.RowIndex;
+                        dataGridView.Rows[row].Cells[1].Value = passwordBox.Text;
+                    }
+                    if (dataGridView.CurrentRow != null)
+                    {
+                        dataGridView.CurrentRow.Cells[1].Value = passwordBox.Text;
+                    }
+                    loginName.Text = "";
+                    passwordBox.Text = "";
+                    urlBox.Text = "";
+                    moreInfoBox.Text = "";
+                }
+                else
+                    throw new Exception("You must provide us with full information!");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void showPasswords_CheckedChanged(object sender, EventArgs e)
@@ -72,38 +104,6 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             }
         }
 
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //int currentRow = dataGridView.CurrentCell.RowIndex;
-
-            //loginNameBox.Text = dataGridView.Rows[dataGridView.SelectedRows[currentRow].Index].Cells[1].Value.ToString();
-            // passwordBox.Text = dataGridView.Rows[dataGridView.SelectedRows[currentRow].Index].Cells[2].Value.ToString();
-            //urlBox.Text = dataGridView.Rows[dataGridView.SelectedRows[currentRow].Index].Cells[3].Value.ToString();
-            //moreInfoBox.Text = dataGridView.Rows[dataGridView.SelectedRows[currentRow].Index].Cells[4].Value.ToString();
-            try
-            {
-                //if (dataGridView.SelectedCells.Count > 1)
-                //    throw new Exception("You can't choose two or more cells");
-                //if (dataGridView.SelectedCells.Count > 0)
-                //{
-                //    loginNameBox.Text = dataGridView.SelectedRows[0].Cells[0].Value.ToString();
-                //    passwordBox.Text = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                //    urlBox.Text = dataGridView.SelectedRows[0].Cells[2].Value.ToString();
-                //    moreInfoBox.Text = dataGridView.SelectedRows[0].Cells[3].Value.ToString();
-                //}
-                int index = e.RowIndex;
-                DataGridViewRow selectedRow = dataGridView.Rows[index];
-                loginNameBox.Text = selectedRow.Cells[0].Value.ToString();
-                passwordBox.Text = selectedRow.Cells[1].Value.ToString();
-                urlBox.Text = selectedRow.Cells[2].Value.ToString();
-                moreInfoBox.Text = selectedRow.Cells[3].Value.ToString();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             dataGridView.Rows.Clear();
@@ -126,22 +126,22 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             }
         }
 
-        private void selectButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                // CIA EXCEPTION REIK KAD PIRMOS EILUTES NELIESTU KRC userioxs Xd
                 int index = e.RowIndex;
                 DataGridViewRow selectedRow = dataGridView.Rows[index];
-                loginNameBox.Text = selectedRow.Cells[0].Value.ToString();
-                passwordBox.Text = selectedRow.Cells[1].Value.ToString();
-                urlBox.Text = selectedRow.Cells[2].Value.ToString();
-                moreInfoBox.Text = selectedRow.Cells[3].Value.ToString();
+                // CIA EXCEPTION REIK KAD PIRMOS EILUTES NELIESTU KRC userioxs Xd
+                if (selectedRow.Cells[0].Value != null ||
+                    selectedRow.Cells[1].Value != null ||
+                    selectedRow.Cells[2].Value != null ||
+                    selectedRow.Cells[3].Value != null)
+                {
+                    loginNameBox.Text = selectedRow.Cells[0].Value.ToString();
+                    urlBox.Text = selectedRow.Cells[2].Value.ToString();
+                    moreInfoBox.Text = selectedRow.Cells[3].Value.ToString();
+                }
             }
             catch (Exception exc)
             {

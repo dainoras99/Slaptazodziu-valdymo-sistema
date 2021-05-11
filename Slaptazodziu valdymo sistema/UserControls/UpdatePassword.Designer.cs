@@ -49,7 +49,6 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.MoreInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showPasswords = new System.Windows.Forms.CheckBox();
             this.allButton = new System.Windows.Forms.Button();
-            this.selectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +56,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             this.loginNameBox.Location = new System.Drawing.Point(107, 89);
             this.loginNameBox.Name = "loginNameBox";
+            this.loginNameBox.ReadOnly = true;
             this.loginNameBox.Size = new System.Drawing.Size(150, 20);
             this.loginNameBox.TabIndex = 42;
             // 
@@ -64,6 +64,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             this.urlBox.Location = new System.Drawing.Point(107, 160);
             this.urlBox.Name = "urlBox";
+            this.urlBox.ReadOnly = true;
             this.urlBox.Size = new System.Drawing.Size(150, 20);
             this.urlBox.TabIndex = 41;
             // 
@@ -90,6 +91,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             this.moreInfoBox.Location = new System.Drawing.Point(107, 198);
             this.moreInfoBox.Name = "moreInfoBox";
+            this.moreInfoBox.ReadOnly = true;
             this.moreInfoBox.Size = new System.Drawing.Size(150, 20);
             this.moreInfoBox.TabIndex = 38;
             // 
@@ -174,10 +176,9 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.MoreInformation});
             this.dataGridView.Location = new System.Drawing.Point(263, 40);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(323, 174);
+            this.dataGridView.Size = new System.Drawing.Size(323, 212);
             this.dataGridView.TabIndex = 49;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // Usernam
             // 
@@ -220,22 +221,11 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.allButton.UseVisualStyleBackColor = true;
             this.allButton.Click += new System.EventHandler(this.allButton_Click);
             // 
-            // selectButton
-            // 
-            this.selectButton.Location = new System.Drawing.Point(415, 229);
-            this.selectButton.Name = "selectButton";
-            this.selectButton.Size = new System.Drawing.Size(75, 23);
-            this.selectButton.TabIndex = 59;
-            this.selectButton.Text = "SELECT";
-            this.selectButton.UseVisualStyleBackColor = true;
-            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
-            // 
             // UpdatePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.Controls.Add(this.selectButton);
             this.Controls.Add(this.allButton);
             this.Controls.Add(this.showPasswords);
             this.Controls.Add(this.dataGridView);
@@ -282,6 +272,5 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn MoreInformation;
         private System.Windows.Forms.CheckBox showPasswords;
         private System.Windows.Forms.Button allButton;
-        private System.Windows.Forms.Button selectButton;
     }
 }
