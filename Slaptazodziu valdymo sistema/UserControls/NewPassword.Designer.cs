@@ -39,6 +39,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.createButton = new System.Windows.Forms.Button();
             this.urlBox = new System.Windows.Forms.TextBox();
             this.loginNameBox = new System.Windows.Forms.TextBox();
+            this.generateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -126,11 +127,22 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.loginNameBox.Size = new System.Drawing.Size(150, 20);
             this.loginNameBox.TabIndex = 32;
             // 
+            // generateButton
+            // 
+            this.generateButton.Location = new System.Drawing.Point(411, 103);
+            this.generateButton.Name = "generateButton";
+            this.generateButton.Size = new System.Drawing.Size(75, 23);
+            this.generateButton.TabIndex = 33;
+            this.generateButton.Text = "Generate";
+            this.generateButton.UseVisualStyleBackColor = true;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
+            // 
             // NewPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.Controls.Add(this.generateButton);
             this.Controls.Add(this.loginNameBox);
             this.Controls.Add(this.urlBox);
             this.Controls.Add(this.createButton);
@@ -160,5 +172,6 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.TextBox urlBox;
         private System.Windows.Forms.TextBox loginNameBox;
+        private System.Windows.Forms.Button generateButton;
     }
 }

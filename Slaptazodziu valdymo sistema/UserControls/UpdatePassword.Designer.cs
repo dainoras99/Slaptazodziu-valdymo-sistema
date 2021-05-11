@@ -49,6 +49,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.MoreInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showPasswords = new System.Windows.Forms.CheckBox();
             this.allButton = new System.Windows.Forms.Button();
+            this.generateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // 
             // urlBox
             // 
-            this.urlBox.Location = new System.Drawing.Point(107, 160);
+            this.urlBox.Location = new System.Drawing.Point(107, 172);
             this.urlBox.Name = "urlBox";
             this.urlBox.ReadOnly = true;
             this.urlBox.Size = new System.Drawing.Size(150, 20);
@@ -98,7 +99,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 163);
+            this.label4.Location = new System.Drawing.Point(10, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 37;
@@ -228,11 +229,22 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             this.allButton.UseVisualStyleBackColor = true;
             this.allButton.Click += new System.EventHandler(this.allButton_Click);
             // 
+            // generateButton
+            // 
+            this.generateButton.Location = new System.Drawing.Point(143, 146);
+            this.generateButton.Name = "generateButton";
+            this.generateButton.Size = new System.Drawing.Size(75, 20);
+            this.generateButton.TabIndex = 59;
+            this.generateButton.Text = "Generate";
+            this.generateButton.UseVisualStyleBackColor = true;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
+            // 
             // UpdatePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.Controls.Add(this.generateButton);
             this.Controls.Add(this.allButton);
             this.Controls.Add(this.showPasswords);
             this.Controls.Add(this.dataGridView);
@@ -279,5 +291,6 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn MoreInformation;
         private System.Windows.Forms.CheckBox showPasswords;
         private System.Windows.Forms.Button allButton;
+        private System.Windows.Forms.Button generateButton;
     }
 }

@@ -56,6 +56,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
                     fileCreation.DeleteRecordFromFile(MainWindow.loggedInUser.fileLocation,
                         username, password, url, moreInfo);
                     MessageBox.Show("Successfully deleted this record!");
+                    dataGridView.Rows.RemoveAt(row);
                 }
                 else
                     throw new Exception("You have to choose a password");

@@ -132,7 +132,6 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             {
                 int index = e.RowIndex;
                 DataGridViewRow selectedRow = dataGridView.Rows[index];
-                // CIA EXCEPTION REIK KAD PIRMOS EILUTES NELIESTU KRC userioxs Xd
                 if (selectedRow.Cells[0].Value != null ||
                     selectedRow.Cells[1].Value != null ||
                     selectedRow.Cells[2].Value != null ||
@@ -147,6 +146,12 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
             {
                 throw new Exception(exc.Message);
             }
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            GeneratePassword generatePassword = new GeneratePassword();
+            passwordBox.Text = generatePassword.GenerateToken(20);
         }
     }
 }

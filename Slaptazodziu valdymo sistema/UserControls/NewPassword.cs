@@ -52,5 +52,11 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
                 MessageBox.Show(exc.Message);
             }
         }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            GeneratePassword generatePassword = new GeneratePassword();
+            passwordBox.Text = generatePassword.GenerateToken(20);
+        }
     }
 }
