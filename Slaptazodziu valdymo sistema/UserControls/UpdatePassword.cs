@@ -39,7 +39,6 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 if (loginName.Text != null ||
@@ -119,7 +118,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
                 if (splitWithPassword[1].Contains("NaujasLainasNNN"))
                     splitWithPassword[1] = splitWithPassword[1].Replace("NaujasLainasNNN", "\n");
                 splitWithPassword[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(splitWithPassword[1], false);
-                if (searchPasswordBox.Text == splitWithPassword[1])
+                if (searchPasswordBox.Text == splitWithPassword[0])
                 {
                     dataGridView.Rows.Add(splitWithPassword);
                 }

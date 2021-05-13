@@ -61,7 +61,7 @@ namespace Slaptazodziu_valdymo_sistema.UserControls
                 if (splitWithPassword[1].Contains("NaujasLainasNNN"))
                     splitWithPassword[1] = splitWithPassword[1].Replace("NaujasLainasNNN", "\n");
                 splitWithPassword[1] = passwordHashing.EncryptingAndDecryptingPasswordWithDES(splitWithPassword[1], false);
-                if (searchPasswordBox.Text == splitWithPassword[1])
+                if (searchPasswordBox.Text == splitWithPassword[0])
                 {
                     dataGridView1.Rows.Add(splitWithPassword);
                 }
